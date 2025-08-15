@@ -19,9 +19,11 @@
   "homepage": "https://github.com/Mahdi-Al-Sabea/Todo_Web_App#readme",
   "dependencies": {
     "@apollo/server": "^5.0.0",
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.2.1",
     "graphql": "^16.11.0",
     "graphql-scalars": "^1.24.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.17.1",
     "reflect-metadata": "^0.2.2",
     "type-graphql": "^2.0.0-rc.2"
