@@ -3,9 +3,12 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { buildSchema } from "type-graphql";
 import { HelloResolver } from "./resolvers/HelloResolver";
+import { connectDB } from "./config/mongo";
 
 
 async function bootstrap() {
+
+  await connectDB();
 
   const schema = await buildSchema({
     resolvers: [HelloResolver],
