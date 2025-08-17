@@ -1,7 +1,7 @@
 import { StandaloneServerContextFunctionArgument } from "@apollo/server/dist/esm/standalone";
-import { User } from "../entities/User"; // Your simple TypeGraphQL User class
+import { User } from "../entities/User"; 
 import { verifyToken } from "../utils/auth";
-import UserModel, { IUser } from "../models/UserModel"; // Your Mongoose model
+import UserModel from "../models/UserModel"; 
 
 export interface MyContext {
   // We expect a plain User object, or undefined

@@ -17,13 +17,13 @@ async function bootstrap() {
   const schema = await buildSchema({
     resolvers: [HelloResolver, UserResolver, TodoResolver],
     authChecker: customAuthChecker,
-    validate: true
+    validate: true // use class-validator
   });
 
   const server = new ApolloServer({ schema });
   const { url } = await startStandaloneServer(server, {
     listen: { port: 4000 },
-    context: context
+    context: context //this attached user to the context 
   });
   console.log(`🚀 Server ready at ${url}`);
 }
