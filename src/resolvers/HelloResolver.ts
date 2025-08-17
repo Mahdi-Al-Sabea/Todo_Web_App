@@ -1,6 +1,6 @@
 import { Resolver,Query, Authorized, Ctx } from "type-graphql";
 import { User } from "../entities/User";
-import { MyContext } from "../Context/MyContext";
+import { MyContext } from "../Context/context";
 
 
 @Resolver()
@@ -10,12 +10,12 @@ export  class HelloResolver {
     return "Hello World!";
   }
   
- @Authorized()
+// @Authorized()
   @Query(() => String)
   me(@Ctx() { user }: MyContext) {
     if (!user) {
       throw new Error("User not found in context. This should not happen with @Authorized.");
     }
-    return `Goodbye World! Your email is: ${user}`;
+    return `Goodbye World! Your email is: ${user.email} and your id is: ${user.id}`;
   }
 }
