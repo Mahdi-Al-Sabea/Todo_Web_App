@@ -5,7 +5,7 @@ import { buildSchema } from "type-graphql";
 import { connectDB } from "./config/mongo";
 import { HelloResolver } from "./resolvers/HelloResolver";
 import { UserResolver } from "./resolvers/UserResolver";
-//import { customAuthChecker } from "./utils/customAuthChecker";
+import { customAuthChecker } from "./utils/customAuthChecker";
 import { context } from "./Context/context";
 
 
@@ -15,7 +15,7 @@ async function bootstrap() {
 
   const schema = await buildSchema({
     resolvers: [HelloResolver,UserResolver],
-    //authChecker: customAuthChecker
+    authChecker: customAuthChecker
   });
 
   const server = new ApolloServer({ schema });

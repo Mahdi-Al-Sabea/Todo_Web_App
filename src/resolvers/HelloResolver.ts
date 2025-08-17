@@ -10,7 +10,7 @@ export  class HelloResolver {
     return "Hello World!";
   }
   
-// @Authorized()
+ @Authorized()
   @Query(() => String)
   me(@Ctx() { user }: MyContext) {
     if (!user) {
