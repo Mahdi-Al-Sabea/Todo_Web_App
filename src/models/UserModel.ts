@@ -27,16 +27,14 @@ const UserSchema: Schema = new Schema({
   timestamps: true,
    toJSON: {
     transform: function (doc, ret) {
-      //ret.id = ret._id;    // Remap '_id' to 'id'
       delete ret._id;      // Delete the old '_id'
       delete ret.__v;      // Delete the version key
-      delete ret.password; // 🚨 CRITICAL: Never expose the password hash
+      delete ret.password; // In order to protect user privacy
     },
     virtuals: true, // Ensure virtuals like 'id' are included
   },
   toObject: {
     transform: function (doc, ret) {
-      //ret.id = ret._id;
       delete ret._id;
       delete ret.__v;
       delete ret.password;
