@@ -1,16 +1,23 @@
 import { ObjectType, Field, ID } from "type-graphql";
+import { Todo } from "./Todo";
 
 @ObjectType()
 export class User {
-  @Field(() => ID ,{description: "Unique identifier for the user"})
-  _id: string;
+  @Field(() => ID)
+  id!: string;
 
-  @Field({description: "Name of the user"})
-  name: string;
+  @Field()
+  email!: string;
 
-  @Field({description: "Email of the user"})
-  email: string;
+  // Not exposed to the GraphQL schema
+  password!: string;
 
-    // no need for password it will cause a security issue
+  @Field()
+  createdAt?: Date;
 
+  @Field()
+  updatedAt?: Date;
+
+  @Field(() => [Todo])
+  todos?: Todo[];
 }
