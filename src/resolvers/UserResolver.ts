@@ -22,16 +22,7 @@ import { MyContext } from "../Context/context";
 @Resolver(User)
 export class UserResolver {
 
-/* @Mutation(() => SignInInput)
-createSignInInput(
-  @Arg("data") data: SignInInput
-) {
-  const signInInput: SignInInput = {
-    email: data.email,
-    password: data.password,
-  };
-  return signInInput;
-} */
+
 
   @Authorized()
   @Query(() => User)
